@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#FBF8EC]">
+    <div id="loading" class="fixed z-5000  top-0 w-full h-full bg-[white]/90  flex items-center justify-center ">
+        <img src="./assets/loading/loading.svg" alt="art">
+    </div>
+    <nav class="shadow-[#0000001A] shadow-xl  bg-[white]">
+        <div class="container max-w-[1440px] [0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex  justify-center gap-[30px] items-center">
+
+                <div class=" flex justify-center items-center gap-[10px]">
+                    <img src="./img/smile.svg" alt="">
+                    <p class="text-[#414141] text-[18px] font-bold">Северяночка</p>
+                </div>
+                <div class="flex items-center justify-center w-[140px] h-[40px] rounded-sm bg-[#70C05B] gap-[5px]">
+                    <button
+                    class="w-[40px] h-[40px] text-[16px] font-normal rounded-sm bg-[#70C05B] text-[white] flex items-center justify-evenly gap-[10px]"><img
+                        src="./img/menu.svg" alt="category"></button>
+                        <a class="text-[16px] text-[white] font-normal" href="./katalog.html">Каталог</a>
+                </div>  
+                <form>
+                    <input
+                    id="input"
+                        class="border-[#70C05B] w-[360px] focus:outline-none h-[40px] rounded-sm border-solid border pl-[15px] pt-[5px] pb-[5px]"
+                        type="search" placeholder="Найти товар">
+                    <div id="search"
+                        class="contaier hidden absolute overflow-y-scroll flex flex-col gap-[7.5px] bg-white p-[10px] absolute mt-[8px] w-[360px] rounded-sm max-h-[300px] border-[#70C05B] border-solid border-y border-x">
+
+
+                    </div>
+                </form>
+                <div class="qutilar flex gap-[25px] ml-[20px] items-center">
+                    <div class="flex flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211.svg" alt="">
+                        <p class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out">
+                            Избранное</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211 (1).svg" alt="">
+                        <p class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out">
+                            продукты</p>
+                    </div>
+                    <div class="flex relative flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./ikkinchi_img/shopping-cart.svg" alt="">
+                        <p class="font-normal text-[12px] text-[#FF6633]">Корзина</p>
+                        <span id="badge"
+                            class="absolute bg-[red] font-normal right-[20px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div id="profile" class="flex gap-[10px] items-center">
+                        <img id="profile-img" class="w-[40px] h-[40px] object-cover rounded-[50%] src="./assets/profile/user.svg" alt="">
+                        <p id="profile-name" class="text-[#232323]  duration-800 hover:text-[#70C05B] font-normal text-[16px]">пользователь</p>
+                        <img src="./img/Button (2).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div id="outer-modal" class="fixed hidden top-0 z-10000 bg-[red]/30 w-full h-full flex justify-center items-center">
+                <form id="form" class=" max-w-[420px] w-full p-[30px] flex flex-col gap-[20px] rounded-[20px] bg-white">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="PhotoUrl">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="FirstName">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="LastName">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="tel" placeholder="PhoneNumber">
+                    <button type="submit" class="border-[2px] border-[#FCD5BA] bg-[#FCD5BA] p-[10px] rounded-[5px] text-[#FF6633] text-[24px] cursor-pointer font-normal flex justify-center items-center outline-none">Вход</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <header>
+        <div class="container max-w-[1440px] [0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper">
+                <div class="flex gap-[20px] ml-[110px] pt-[20px] items-center">
+                    <button class="font-normal text-[12px] text-[#414141] duration-800 hover:text-[#70C05B]"><a
+                            href="./index.html">Главная</a></button>
+                    <img src="./img/chevron-right.svg" alt="">
+                    <p class="text-[#8F8F8F] text-[12px] font-normal">Корзина</p>
+                </div>
+                <p class="text-[#414141] text-[64px] ml-[100px] pt-[30px] font-bold">Корзина</p>
+                <div class="flex items-center mt-[50px] gap-[40px]">
+                    <div class="flex items-center ml-[110px] gap-[10px]">
+                        <button
+                            class="w-[24px] h-[24px] bg-[white] hover:bg-[#70C05B] hover:border-[#70C05B] duration-800 ease-in-out rounded-sm border-solid border-x border-y outline-none border-[#BFBFBF] flex justify-center items-center"><img
+                                src="./ikkinchi_img/minus.svg" alt=""></button>
+                        <p class="text-[#606060] text-[12px] font-normal">Выделить всё</p>
+                    </div>
+                    <p class="text-[#FF6633] text-[12px] font-normal">Удалить выбранные</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] [0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex justify-between items-center">
+                <div id="aksiya-cards" class="otasi max-w-[880px] ml-[100px] mt-[20px] flex flex-wrap gap-[20px]">
+                    <!-- <div class="bola flex justify-between relative w-[876px]  h-[72px] bg-[#FFFFFF] shadow-xl shadow-[#0000001A0] duration-800 hover:shadow-xl hover:shadow-[#FF663333] ">
+                        <div
+                            class="absolute top-[-8px] left-[10px] w-[24px] h-[24px] bg-[white] hover:bg-[#70C05B] hover:border-[#70C05B] duration-800 ease-in-out rounded-sm border-solid border-x border-y outline-none border-[#BFBFBF] flex justify-center items-center">
+                            <img src="./ikkinchi_img/ptechka.svg" alt="">
+                        </div>
+                        <div class="flex items-center gap-[10px]">
+                            <img class="mb-[8px] ml-[-2px]" src="./ikkinchi_img/Item.svg" alt="">
+                            <div class="">
+                                <p class="text-[16px] text-[#414141] font-normal">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»
+                                </p>
+                                <div class="text-[12px] flex items-center gap-[10px]">
+                                    <p class="text-[#414141] font-bold">44,50 ₽</p>
+                                    <p class="text-[#606060] font-normal">за шт.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-[50px]">
+                            <div class="flex items-center justify-evenly bg-[#70C05B] w-[100px] h-[40px] rounded-sm ">
+                                <button class="w-[24px] h-[24px] flex items-center justify-center"><img
+                                        src="./ikkinchi_img/minus.svg" alt=""></button>
+                                <button class=" text-[white] text-[16px] font-normal w-[24px] h-[24px]">2</button>
+                                <button class="flex justify-center items-center w-[24px] h-[24px] "><img
+                                        src="./ikkinchi_img/plus.svg" alt=""></button>
+                            </div>
+                            <p class="text-[18px] text-[#414141] mb-[30px] mr-[5px] font-bold">89,00 ₽</p>
+                        </div>
+                    </div>
+
+                    <div class="bola flex justify-between relative w-[876px]  h-[90px] bg-[#FFFFFF] shadow-xl shadow-[#0000001A0] duration-800 hover:shadow-xl hover:shadow-[#FF663333] ">
+                        <div
+                            class="absolute top-[-8px] left-[10px] w-[24px] h-[24px] bg-[white] hover:bg-[#70C05B] hover:border-[#70C05B] duration-800 ease-in-out rounded-sm border-solid border-x border-y outline-none border-[#BFBFBF] flex justify-center items-center">
+                            <img src="./ikkinchi_img/ptechka.svg" alt="">
+                        </div>
+                        <div class="flex items-center gap-[10px]">
+                            <img class="mb-[25px] ml-[-2px]" src="./ikkinchi_img/Item.svg" alt="">
+                            <div class="">
+                                <p class="text-[16px] text-[#414141] font-normal">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»
+                                </p>
+                                <div class="text-[12px] flex items-center   gap-[10px]">
+                                    <div class="flex flex-col">
+                                        <p class="text-[#414141] font-bold">44,50 ₽</p>
+                                        <p class="text-[12px] text-[#BFBFBF] font-normal">С картой</p>
+                                    </div>
+
+                                    <div class="flex flex-col">
+                                        <p class="text-[12px] text-[#606060] ml-[10px] font-normal">50,50 ₽</p>
+                                        <p class="text-[12px] text-[#BFBFBF] font-normal">Обычная</p>
+
+                                    </div>
+                                    <div class="flex gap-[10px]">
+                                        <p class="text-[#606060] font-normal">за шт.</p>
+                                        <div
+                                            class="bg-[#FF6633] text-[white] text-[16px] font-normal flex justify-center items-center w-[53px] h-[32px] rounded-sm">
+                                            -10%</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-[50px]">
+                            <div class="flex items-center justify-evenly bg-[#70C05B] w-[100px] h-[40px] rounded-sm ">
+                                <button class="w-[24px] h-[24px] flex items-center justify-center"><img
+                                        src="./ikkinchi_img/minus.svg" alt=""></button>
+                                <button class=" text-[white] text-[16px] font-normal w-[24px] h-[24px]">2</button>
+                                <button class="flex justify-center items-center w-[24px] h-[24px] "><img
+                                        src="./ikkinchi_img/plus.svg" alt=""></button>
+                            </div>
+                            <div class="mb-[30px] ">
+                                <p class="text-[18px] text-[#414141] mr-[5px] font-bold">80,10 ₽</p>
+                                <p
+                                    class="text-[16px] text-[#8F8F8F] ml-[8px] line-through decoration-[#8F8F8F] decoration-[0.5px]  font-normal">
+                                    89,00 ₽</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bola flex justify-between relative w-[876px]  h-[72px] bg-[#FFFFFF] shadow-xl shadow-[#0000001A0] duration-800 hover:shadow-xl hover:shadow-[#FF663333] ">
+                        <div
+                            class="absolute top-[-8px] left-[10px] w-[24px] h-[24px] bg-[white] hover:bg-[#70C05B] hover:border-[#70C05B] duration-800 ease-in-out rounded-sm border-solid border-x border-y outline-none border-[#BFBFBF] flex justify-center items-center">
+                            <img src="./ikkinchi_img/ptechka.svg" alt="">
+                        </div>
+                        <div class="flex items-center gap-[10px]">
+                            <img class="mb-[8px] ml-[-2px]" src="./ikkinchi_img/Item.svg" alt="">
+                            <div class="">
+                                <p class="text-[16px] text-[#414141] font-normal">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»
+                                </p>
+                                <div class="text-[12px] flex items-center gap-[10px]">
+                                    <p class="text-[#414141] font-bold">44,50 ₽</p>
+                                    <p class="text-[#606060] font-normal">за шт.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-[50px]">
+                            <div class="flex items-center justify-evenly bg-[#70C05B] w-[100px] h-[40px] rounded-sm ">
+                                <button class="w-[24px] h-[24px] flex items-center justify-center"><img
+                                        src="./ikkinchi_img/minus.svg" alt=""></button>
+                                <button class=" text-[white] text-[16px] font-normal w-[24px] h-[24px]">2</button>
+                                <button class="flex justify-center items-center w-[24px] h-[24px] "><img
+                                        src="./ikkinchi_img/plus.svg" alt=""></button>
+                            </div>
+                            <p class="text-[18px] text-[#414141] mb-[30px] mr-[5px] font-bold">89,00 ₽</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="bola flex justify-between relative w-[876px] opacity-50 h-[72px] bg-[#FFFFFF] shadow-xl shadow-[#0000001A0]  ">
+                        <div
+                            class="absolute top-[-8px] left-[10px] w-[24px] h-[24px] bg-[white]  rounded-sm border-solid border-x border-y outline-none border-[#BFBFBF] flex justify-center items-center">
+                            <img src="./ikkinchi_img/ptechka.svg" alt="">
+                        </div>
+                        <div class="flex items-center gap-[10px]">
+                            <img class="mb-[8px] ml-[-2px]" src="./ikkinchi_img/Item.svg" alt="">
+                            <div class="">
+                                <p class="text-[16px] text-[#414141] font-normal">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»
+                                </p>
+                                <div class="text-[12px] flex items-center gap-[10px]">
+                                    <p class="text-[#414141] font-bold">44,50 ₽</p>
+                                    <p class="text-[#606060] font-normal">за шт.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex mt-[10px] mr-[5px]">
+                            <p class="text-[16px] text-[#414141] font-normal">Нет в наличии</p>
+                        </div>
+                    </div> -->
+                    <!-- <label class="flex items-center cursor-pointer space-x-3"></label> -->
+
+
+                </div>
+                <div id="ongtaraf">
+                    <!-- <div class="ongtaraf mr-[100px] flex flex-col w-[272px] h-[420px] ">
+                        <div class="flex gap-[10px]  items-center">
+                            <label class="relative inline-block cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" />
+
+                                <div
+                                    class="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-[#70C05B] transition-colors">
+                                </div>
+
+                                <div
+                                    class="absolute top-[2px] left-[2px] w-5 h-5 bg-white rounded-full shadow-sm transform peer-checked:translate-x-6 transition-transform">
+                                </div>
+                            </label>
+
+                            <p class="text-[#414141] text-[16px] font-normal">Списать 200 ₽ </p>
+                        </div>
+                        <p class="text-[16px] mt-[20px] text-[#8F8F8F] font-normal">На карте накоплено 200 ₽ </p>
+                        <img class="w-full mt-[25px] mb-[25px]" src="./ikkinchi_img/Rectangle 6255.svg" alt="">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[#8F8F8F] text-[16px] font-normal">3 товара</p>
+                            <p class="text-[#414141] text-[16px] font-normal">258,10 ₽ </p>
+                        </div>
+                        <div class="flex justify-between mt-[10px] items-center">
+                            <p class="text-[16px] text-[#8F8F8F] font-normal">Скидка</p>
+                            <p class="text-[#FF6633] text-[16px] font-bold">-8,01 ₽</p>
+                        </div>
+                        <img class="w-full mt-[25px] mb-[25px]" src="./ikkinchi_img/Rectangle 6255.svg" alt="">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[16px] text-[#8F8F8F] font-normal">Итог</p>
+                            <p class="text-[24px] text-[#414141] font-bold">250,09 ₽</p>
+                        </div>
+                        <div class="flex justify-center mt-[10px] items-center gap-[10px]">
+                            <img src="./ikkinchi_img/smile.svg" alt="">
+                            <p class="text-[10px] text-[#70C05B] font-normal">Вы получяете <span
+                                    class="text-[12px] text-[#70C05B] font-bold"> 100 бонусов</span> </p>
+                        </div>
+                        <div class="flex justify-center mt-[25px]">
+                            <p
+                                class="w-[214px] h-[24px] rounded-sm bg-[#D80000] text-[12px] text-[white] font-normal flex justify-center items-center">
+                                Минимальная сумма заказа 1000р</p>
+                        </div>
+
+                        <button
+                            class="w-full mt-[10px] h-[60px] bg-[#FCD5BA] text-[#FF6633] text-[24px] font-normal flex justify-center items-center rounded-sm">Оформить
+                            заказ</button>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <footer class=" mt-[120px] bg-[url('./katalog_img/bg.svg')] bg-center bg-cover bg-[#F9F4E2] h-[156px]">
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] ">
+            <div class="wrapper flex justify-evenly items-center flex-wrap">
+                <div class="flex items-center gap-[40px]">
+                    <img src="./img/smile.svg" alt="">
+                    <ul class="flex gap-[30px] items-center text-[12px] text-[#414141] font-normal">
+                        <li>
+                            <a href="">О компании</a>
+                        </li>
+                        <li>
+                            <a href="">Контакты</a>
+                        </li>
+                        <li>
+                            <a href="">Вакансии</a>
+                        </li>
+                        <li>
+                            <a href="">Статьи</a>
+                        </li>
+                        <li>
+                            <a href="">Политика обработки персональных данных</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex gap-[20px]">
+                        <img src="./img/instagram.svg" alt="">
+                        <img src="./img/Vector.svg" alt="">
+                        <img src="./img/facebook.svg" alt="">
+                        <img src="./img/ok.svg" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-[20px] gap-[20px]">
+                    <div class="flex items-center gap-[10px]">
+                        <img src="./img/Vector 188 (Stroke).svg" alt="">
+                        <p class="text-[#414141] text-[16px] font-normal">8 800 777 33 33</p>
+                    </div>
+                    <div class="flex gap-[10px] items-center">
+                        <p class="font-normal text-[12px] text-[#414141]">Дизайн</p>
+                        <img src="./img/logo-zasovskiy-small-black.svg" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="./products-data/products-data.js"></script>
+    <script src="./main.js/script.js"></script>
+    <script src="./main.js/search.js"></script>
+    <script src="./main.js/korzina.js"></script>
+    <script src="./main.js/profile.js"></script>
+</body>
+
+</html>

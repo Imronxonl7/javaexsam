@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: {
+            'xl2': '1200px', // 1200px dan katta
+            'tablet': '780px', // 780px dan katta
+            'small': '400px', // 400px dan katta
+            'mini': '300px', // 300px dan katta
+          },
+        },
+      },
+    }
+  </script> -->
+</head>
+
+<body class="bg-[#FBF8EC]">
+    <div id="loading" class="fixed z-5  top-0 w-full h-full bg-[white]/90  flex items-center justify-center ">
+        <img src="./assets/loading/loading.svg" alt="art">
+    </div>
+
+    <nav class="fixed  z-5 top-0 left-0 w-full  bg-[white] shadow-[#0000001A] shadow-xl " id="navbar">
+        <div class="container max-w-[1440px] bg-[white] [0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex  justify-center gap-[30px] items-center">
+
+                <div class=" flex justify-center items-center gap-[10px]">
+                    <img src="./img/smile.svg" alt="">
+                    <p class="text-[#414141] text-[18px] font-bold">Северяночка</p>
+                </div>
+                <div
+                    class="flex items-center  justify-center w-[140px] h-[40px] rounded-sm bg-[#70C05B] cursor-pointer gap-[5px]">
+                    <button id="toggle"
+                        class="w-[40px] h-[40px] text-[16px] font-normal rounded-sm bg-[#70C05B] text-[white] flex items-center justify-evenly gap-[10px]"><img
+                            src="./img/menu.svg" alt="category"></button>
+                    <a class="text-[16px] text-[white] font-normal" href="./katalog.html">Каталог</a>
+                </div>
+
+
+                <form>
+
+                    <input id="input"
+                        class="border-[#70C05B] w-[360px] focus:outline-none h-[40px] rounded-sm border-solid border pl-[15px] pt-[5px] pb-[5px]"
+                        type="search" placeholder="Найти товар">
+                    <div id="search"
+                        class="contaier hidden absolute overflow-y-scroll flex flex-col gap-[7.5px] bg-white p-[10px] absolute mt-[8px] w-[360px] rounded-sm max-h-[300px] border-[#70C05B] border-solid border-y border-x">
+
+
+                    </div>
+
+                </form>
+                <div class="qutilar flex gap-[25px] ml-[20px] items-center">
+                    <div class="flex flex-wrap relative justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211.svg" alt="">
+                        <button id="like-badge"
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="">Избранное</a></button>
+                        <span
+                            class="absolute bg-[red] font-normal right-[15px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div class="flex  flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211 (1).svg" alt="">
+                        <button
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./produkt.html">продукты</a></button>
+                    </div>
+                    <div class="flex flex-wrap relative justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/shopping-cart.svg" alt="">
+                        <button
+                            class="font-normal relative text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./korzina.html">Корзина</a></button>
+                        <span id="badge"
+                            class="absolute bg-[red] font-normal right-[20px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div id="profile" class="flex gap-[10px] items-center">
+                        <img id="profile-img" class="w-[40px] h-[40px] object-cover rounded-[50%]"
+                            src="./assets/profile/user.svg" alt="">
+                        <p id="profile-name"
+                            class="text-[#232323] duration-800 hover:text-[#70C05B] font-normal text-[16px]">
+                            пользователь</p>
+                        <img src="./img/Button (2).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="category-cards" class="fixed z-4 grid grid-cols-4 gap-[30px]  duration-700 p-[30px] bg-[white] w-full translate-y-[-400px] top-0">
+       
+    </div>
+    <main>
+        <section>
+            <div id="outer-modal"
+                class="fixed hidden z-100 top-0  bg-[red]/30 w-full h-full flex justify-center items-center">
+                <form id="form" class=" max-w-[420px] w-full p-[30px] flex flex-col gap-[20px] rounded-[20px] bg-white">
+                    <input required
+                        class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none "
+                        type="text" placeholder="PhotoUrl">
+                    <input required
+                        class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none "
+                        type="text" placeholder="FirstName">
+                    <input required
+                        class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none "
+                        type="text" placeholder="LastName">
+                    <input required
+                        class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none "
+                        type="tel" placeholder="PhoneNumber">
+                    <button type="submit"
+                        class="border-[2px] border-[#FCD5BA] bg-[#FCD5BA] p-[10px] rounded-[5px] text-[#FF6633] text-[24px] cursor-pointer font-normal flex justify-center items-center outline-none">Вход</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <header class="bg-[url('/img/bg_rasm.svg')] bg-[white]  bg-cover bg-center">
+        <div class="container max-w-[1440px]  mt-[70px] mb-[0px] ml-auto mr-auto">
+            <div class="wrapper flex justify-center gap-[10px] items-center">
+                <img src="./img/img.svg" alt="">
+                <p class="font-bold text-[48px] text-[#414141]">Доставка бесплатно от 1000 ₽</p>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px]">
+            <div class="wrapper">
+                <div class="aksiya flex items-center justify-between">
+                    <h1 class="text-[#414141] text-[36px] ml-[110px] font-bold ">Акции</h1>
+                    <div class="flex justify-center gap-[10px] items-center mr-[100px]">
+                        <p class="text-[#606060] text-[16px] font-normal ">Все продукты</p>
+                        <img src="./img/chevron-right.svg" alt="">
+                    </div>
+                </div>
+                <!-- <div id="aksiya" class="container mx-auto max-w-[1440px] grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3  sm:grid-cols-2 xl:grid-cols-4   justify-items-center gap-8 px-[6px] pt-[60px] pb-[50px]">
+
+
+            </div> -->
+                <div id="aksiya" class="cards  mb-[60px] mt-[100px] flex justify-center flex-wrap gap-[50px]">
+                    <!-- <div
+                        class="card hover:shadow-[#FF663333] duration-700 ease-in-out hover:shadow-xl relative rounded-sm w-[272px] h-[350px] bg-[white]">
+                        <div class="w-full h-[160px]">
+                            <img class=" w-full h-full  rounded-sm" src="./img/quymoq.svg" alt="">
+                            <div
+                                class="absolute w-[56px] h-[32px] rounded-sm bg-[#FF6633] flex justify-center items-center text-[white] text-[16px] font-normal left-[10px] top-[120px] ">
+                                -50%</div>
+                            <img class="absolute right-[10px] top-[10px]" src="./img/yurakcha.svg" alt="">
+                        </div>
+
+                        <div class="flex items-center justify-between ml-[10px] mt-[10px] mr-[5px]">
+                            <div class="">
+                                <p class="font-bold text-[18px] text-[#414141]">44,50 ₽</p>
+                                <p class="font-normal text-[12px] text-[#BFBFBF]">С картой</p>
+                            </div>
+                            <div class="">
+                                <p class="font-normal text-[16px] text-[#606060]">50,50 ₽</p>
+                                <p class="font-normal text-[12px] text-[#BFBFBF]">Обычная</p>
+                            </div>
+                        </div>
+                        <p class="font-normal text-[#414141] text-[16px] ml-[10px] mt-[5px] mr-[10px]">Г/Ц Блинчики с
+                            мясом вес, Россия</p>
+                        <img class="ml-[8px] mt-[10px]" src="./img/ikki_yulduz.svg" alt="">
+                        <div class=" flex justify-center">
+                            <button
+                                class="w-[256px] h-[40px] mt-[10px] hover:bg-[#FF6633] hover:text-[white] hover:border-[#FF6633] duration-500 ease-in-out rounded-sm border-solid border-x border-y border-[#70C05B] text-[#70C05B]">В
+                                корзину</button>
+                        </div>
+
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px]">
+            <div class="wrapper">
+                <div class="aksiya flex items-center justify-between">
+                    <h1 class="text-[#414141] text-[36px] ml-[110px] font-bold ">Новинки</h1>
+                    <div class="flex justify-center gap-[10px] items-center mr-[100px]">
+                        <p class="text-[#606060] text-[16px] font-normal ">Все продукты</p>
+                        <img src="./img/chevron-right.svg" alt="">
+                    </div>
+                </div>
+                <div id="novinki" class="cards mb-[50px]  mt-[80px] flex justify-center flex-wrap gap-[50px]">
+                    <!-- <div
+                        class="card  hover:shadow-[#FF663333] duration-700 ease-in-out hover:shadow-xl relative rounded-sm w-[272px] h-[350px] bg-[white]">
+                        <div class="">
+                            <img class=" h-[160px] rounded-sm" src="./img/kalbasa.svg" alt="">
+
+                            <img class="absolute right-[10px] top-[10px]" src="./img/yurakcha.svg" alt="">
+                        </div>
+                        <div class="flex items-center justify-between ml-[10px] mt-[10px] mr-[5px]">
+                            <div class="">
+                                <p class="font-bold text-[18px] text-[#414141]">599,99 ₽</p>
+
+                            </div>
+
+                        </div>
+                        <p class="font-normal text-[#414141] text-[16px] ml-[10px] mt-[20px] mr-[10px]">Комбайн КЗС-1218
+                            «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
+                        <img class="ml-[8px] mt-[10px]" src="./img/ikki_yulduz.svg" alt="">
+                        <div class=" flex justify-center">
+                            <button
+                                class="w-[256px] h-[40px] mt-[10px] hover:bg-[#FF6633] hover:text-[white] hover:border-[#FF6633] duration-500 ease-in-out rounded-sm border-solid border-x border-y border-[#70C05B] text-[#70C05B]">В
+                                корзину</button>
+                        </div>
+
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px]">
+            <div class="wrapper">
+                <div class="aksiya flex items-center justify-between">
+                    <h1 class="text-[#414141] text-[36px] ml-[110px] font-bold ">Покупали раньше</h1>
+                    <div class="flex justify-center gap-[10px] items-center mr-[100px]">
+                        <p class="text-[#606060] text-[16px] font-normal ">Все продукты</p>
+                        <img src="./img/chevron-right.svg" alt="">
+                    </div>
+                </div>
+                <div id="pokupaliRanshe" class="cards mb-[50px]  mt-[80px] flex justify-center flex-wrap gap-[50px]">
+                    <!-- <div
+                        class="card hover:shadow-[#FF663333] duration-700 ease-in-out hover:shadow-xl relative rounded-sm w-[272px] h-[350px] bg-[white]">
+                        <div class="">
+                            <img class=" h-[160px] rounded-sm" src="./img/mayda_kalbasa.svg" alt="">
+
+                            <img class="absolute right-[10px] top-[10px]" src="./img/yurakcha.svg" alt="">
+                        </div>
+                        <div class="flex items-center justify-between ml-[10px] mt-[10px] mr-[5px]">
+                            <div class="">
+                                <p class="font-bold text-[18px] text-[#414141]">77,99 ₽</p>
+
+                            </div>
+
+                        </div>
+                        <p class="font-normal text-[#414141] text-[16px] ml-[10px] mt-[20px] mr-[10px]">Комбайн КЗС-1218
+                            «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
+                        <img class="ml-[8px] mt-[10px]" src="./img/ikki_yulduz.svg" alt="">
+                        <div class=" flex justify-center">
+                            <button
+                                class="w-[256px] h-[40px] mt-[10px] hover:bg-[#FF6633] hover:text-[white] hover:border-[#FF6633] duration-500 ease-in-out rounded-sm border-solid border-x border-y border-[#70C05B] text-[#70C05B]">В
+                                корзину</button>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] pb-[60px]">
+            <div class="wrapper">
+                <h1 class="text-[#414141] ml-[110px] text-[36px] font-bold">Специальные предложения</h1>
+                <div class="flex justify-center flex-wrap gap-[50px] mt-[50px]">
+                    <div>
+                        <div
+                            class="flex items-center justify-evenly w-[584px] h-[200px] bg-[#FCD5BA] rounded-sm duration-700 ease-in-out hover:shadow-xl hover:shadow-[#CA936080]">
+                            <div class="left w-[258px]">
+                                <p class="font-bold text-[24px] text-[#414141]">Оформите карту «Северяночка»</p>
+                                <p class="font-normal text-[16px] text-[#414141]">И получайте бонусы при покупке в
+                                    магазинах и на сайте</p>
+                            </div>
+                            <img class="w-[250px]" src="./img/Карта лояльности-10 1.png" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            class="flex items-center justify-evenly w-[584px] h-[200px] bg-[#E5FFDE] rounded-sm duration-700 ease-in-out hover:shadow-xl hover:shadow-[#CA936080]">
+                            <div class="left w-[258px]">
+                                <p class="font-bold text-[24px] text-[#414141]">Покупайте акционные товары</p>
+                                <p class="font-normal text-[16px] text-[#414141]">И получайте вдвое больше бонусов</p>
+                            </div>
+                            <img class="w-[190px] h-[186px]" src="./img/73 1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] pb-[40px]">
+            <div class="wrapper">
+                <h1 class="text-[#414141] ml-[110px] text-[36px] font-bold">Наши магазины</h1>
+                <div class="flex gap-[10px] ml-[110px] mt-[50px]">
+                    <button
+                        class="w-[97px] h-[32px] font-normal text-[#606060] rounded-sm text-[12px] bg-[#F3F2F1] duration-700 ease-in-out hover:shadow-xl hover:text-[#FFFFFF] hover:bg-[#70C05B]">п.Щельяюр</button>
+                    <button
+                        class="w-[97px] h-[32px] font-normal text-[#606060] rounded-sm text-[12px] bg-[#F3F2F1] duration-700 ease-in-out hover:shadow-xl hover:text-[#FFFFFF] hover:bg-[#70C05B]">д.Вертеп</button>
+                    <button
+                        class="w-[97px] h-[32px] font-normal text-[#606060] rounded-sm text-[12px] bg-[#F3F2F1] duration-700 ease-in-out hover:shadow-xl hover:text-[#FFFFFF] hover:bg-[#70C05B]">с.Краснобор</button>
+                    <button
+                        class="w-[97px] h-[32px] font-normal text-[#606060] rounded-sm text-[12px] bg-[#F3F2F1] duration-700 ease-in-out hover:shadow-xl hover:text-[#FFFFFF] hover:bg-[#70C05B]">д.Диюр</button>
+                </div>
+                <div class="flex justify-center mt-[40px]">
+                    <div style="position:relative;overflow:hidden;"><a
+                            href="https://yandex.uz/maps/10335/tashkent/?utm_medium=mapframe&utm_source=maps"
+                            style="color:#eee;font-size:12px;position:absolute;top:0px;">Toshkent</a><a
+                            href="https://yandex.uz/maps/10335/tashkent/geo/1740291101/?ll=69.279660%2C41.311429&utm_campaign=desktop&utm_medium=mapframe&utm_source=maps&z=18.26"
+                            style="color:#eee;font-size:12px;position:absolute;top:14px;">Amir Temur xiyoboni —
+                            Yandex Xarita</a><iframe
+                            src="https://yandex.uz/map-widget/v1/?ll=69.279660%2C41.311429&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNzQwMjkxMTAxEitPyrt6YmVraXN0b24sIFRvc2hrZW50LCBBbWlyIFRlbXVyIHhpeW9ib25pIgoNPI-KQhXCPiVC&utm_campaign=desktop&utm_medium=search&utm_source=maps&z=18.26"
+                            width="1208" height="400" frameborder="1" allowfullscreen="true"
+                            style="position:relative; "></iframe></div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] ">
+            <div class="wrapper">
+                <div class="aksiya flex items-center justify-between">
+                    <h1 class="text-[#414141] ml-[110px] text-[36px] font-bold">Статьи</h1>
+                    <div class="flex justify-center gap-[10px] items-center mr-[100px]">
+                        <p class="text-[#606060] text-[16px] font-normal ">Все статьи </p>
+                        <img src="./img/chevron-right.svg" alt="">
+                    </div>
+                </div>
+                <div class="flex justify-center flex-wrap gap-[50px] mt-[50px]">
+                    <div
+                        class="w-[376px] h-[420px] bg-[white] duration-700 ease-in-out hover:shadow-xl hover:shadow-[#FF663333] shadow-[#0000001A] rounded-sm">
+                        <img class="w-[376px] h-[162px] rounded-t-sm" src="./img/stop.png" alt="">
+                        <div class="ml-[10px]">
+                            <p class="font-normal text-[12px] text-[#8F8F8F] mt-[5px]">05.03.2021</p>
+                            <p class="font-bold text-[18px] text-[#414141] mt-[10px]">Режим использования масок и
+                                перчаток на территории магазинов</p>
+                            <p class="font-normal text-[16px] text-[#414141] mt-[15px]">Подробная информация о режимах
+                                использования масок и перчаток на территории магазинов "ЛЕНТА". Информация обновляется
+                                каждый будний день.</p>
+                            <button
+                                class="w-[150px] h-[40px] text-[16px] text-[#70C05B] mt-[10px] bg-[#E5FFDE] rounded-sm duration-700 ease-in-out hover:bg-[#70C05B] hover:text-[white] ">Подробнее</button>
+                        </div>
+                    </div>
+                    <div
+                        class="w-[376px] h-[420px] bg-[white] duration-700 ease-in-out hover:shadow-xl hover:shadow-[#FF663333] shadow-[#0000001A] rounded-sm">
+                        <img class="w-[376px] h-[162px] rounded-t-sm" src="./img/bahor.png" alt="">
+                        <div class="ml-[10px]">
+                            <p class="font-normal text-[12px] text-[#8F8F8F] mt-[5px]">05.03.2021</p>
+                            <p class="font-bold text-[18px] text-[#414141] mt-[10px]">Весеннее настроение для каждой</p>
+                            <p class="font-normal text-[16px] text-[#414141] mt-[15px]">8 Марта – это не просто
+                                Международный женский день, это ещё день тюльпанов, приятных сюрпризов и праздничных
+                                тёплых пожеланий.</p>
+                            <button
+                                class="w-[150px] h-[40px] text-[16px] text-[#70C05B] mt-[37px] bg-[#E5FFDE] rounded-sm duration-700 ease-in-out hover:bg-[#70C05B] hover:text-[white] ">Подробнее</button>
+                        </div>
+                    </div>
+                    <div
+                        class="w-[376px] h-[420px] bg-[white] duration-700 ease-in-out hover:shadow-xl hover:shadow-[#FF663333] shadow-[#0000001A] rounded-sm">
+                        <img class="w-[376px] h-[162px] rounded-t-sm" src="./img/vegetables.png" alt="">
+                        <div class="ml-[10px]">
+                            <p class="font-normal text-[12px] text-[#8F8F8F] mt-[5px]">22.02.2020</p>
+                            <p class="font-bold text-[18px] text-[#414141] mt-[10px]">ЗОЖ или ФАСТФУД. А вы на чьей
+                                стороне? Голосуем!</p>
+                            <p class="font-normal text-[16px] text-[#414141] mt-[15px]">Голосуйте за любимые категории,
+                                выбирайте категорию-победителя в мобильном приложении и получайте кешбэк 10% баллами в
+                                апреле!</p>
+                            <button
+                                class="w-[150px] h-[40px] text-[16px] text-[#70C05B] mt-[10px] bg-[#E5FFDE] rounded-sm duration-700 ease-in-out hover:bg-[#70C05B] hover:text-[white] ">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+    </header>
+    <footer class="pb-[100px] mt-[120px] bg-[url('/img/bg_rasm.svg')] bg-center bg-cover  bg-[#F9F4E2] h-[156px]">
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] ">
+            <div class="wrapper flex justify-evenly items-center flex-wrap">
+                <div class="flex items-center gap-[40px]">
+                    <img src="./img/smile.svg" alt="">
+                    <ul class="flex gap-[30px] items-center text-[12px] text-[#414141] font-normal">
+                        <li>
+                            <a href="">О компании</a>
+                        </li>
+                        <li>
+                            <a href="">Контакты</a>
+                        </li>
+                        <li>
+                            <a href="">Вакансии</a>
+                        </li>
+                        <li>
+                            <a href="">Статьи</a>
+                        </li>
+                        <li>
+                            <a href="">Политика обработки персональных данных</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex gap-[20px]">
+                        <img src="./img/instagram.svg" alt="">
+                        <img src="./img/Vector.svg" alt="">
+                        <img src="./img/facebook.svg" alt="">
+                        <img src="./img/ok.svg" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-[20px] gap-[20px]">
+                    <div class="flex items-center gap-[10px]">
+                        <img src="./img/Vector 188 (Stroke).svg" alt="">
+                        <p class="text-[#414141] text-[16px] font-normal">8 800 777 33 33</p>
+                    </div>
+                    <div class="flex gap-[10px] items-center">
+                        <p class="font-normal text-[12px] text-[#414141]">Дизайн</p>
+                        <img src="./img/logo-zasovskiy-small-black.svg" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <script src="./products-data/products-data.js"></script> 
+    <script src="./main.js/search.js"></script>
+    <script src="./main.js/script.js"></script>
+    <script src="./main.js/profile.js"></script>
+    <script src="./main.js/category-data.js"></script>
+    <script src="./main.js/toggle.js"></script> 
+    <script src="./main.js/category-map.js"></script>
+    
+</body>
+,<div class="">
+</html>

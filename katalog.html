@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#FBF8EC]">
+    <!-- <div id="loading" class="fixed z-5000  top-0 w-full h-full bg-[white]/90  flex items-center justify-center ">
+        <img src="./assets/loading/loading.svg" alt="art">
+    </div> -->
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[#0000001A] shadow-xl  z-50 transition-transform duration-700"
+        id="navbar">
+        <div class="container max-w-[1440px] bg-[white] mt-[0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex  justify-center gap-[30px] items-center">
+
+                <div class=" flex justify-center items-center gap-[10px]">
+                    <img src="./img/smile.svg" alt="">
+                    <p class="text-[#414141] text-[18px] font-bold">Северяночка</p>
+                </div>
+               <div class="flex items-center justify-center w-[140px] h-[40px] rounded-sm bg-[#70C05B] gap-[5px]">
+                    <button
+                    class="w-[40px] h-[40px] text-[16px] font-normal rounded-sm bg-[#70C05B] text-[white] flex items-center justify-evenly gap-[10px]"><img
+                        src="./img/menu.svg" alt="category"></button>
+                        <a class="text-[16px] text-[white] font-normal" href="./katalog.html">Каталог</a>
+                </div>
+                <form>
+                    <input
+                        id="input"
+                        class="border-[#70C05B] w-[360px] focus:outline-none h-[40px] rounded-sm border-solid border pl-[15px] pt-[5px] pb-[5px]"
+                        type="search" placeholder="Найти товар">
+                        <div id="search"
+                        class="contaier hidden absolute overflow-y-scroll flex flex-col gap-[7.5px] bg-white p-[10px] absolute mt-[8px] w-[360px] rounded-sm max-h-[300px] border-[#70C05B] border-solid border-y border-x">
+
+
+                    </div>
+                </form>
+                <div class="qutilar flex gap-[25px] ml-[20px] items-center">
+                    <div class="flex flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211.svg" alt="">
+                        <button
+                            id="like-badge"
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="">Избранное</a></button>
+                    </div>
+                    <div class="flex flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211 (1).svg" alt="">
+                        <button
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./produkt.html">продукты</a></button>
+                    </div>
+                    <div class="flex relative flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/shopping-cart.svg" alt="">
+                        <button
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./korzina.html">Корзина</a></button>
+                        <span id="badge"
+                            class="absolute bg-[red] font-normal right-[20px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div id="profile" class="flex gap-[10px] items-center">
+                        <img id="profile-img" class="w-[40px] h-[40px] object-cover rounded-[50%] src="./assets/profile/user.svg" alt="">
+                        <p id="profile-name" class="text-[#232323]  duration-800 hover:text-[#70C05B] font-normal text-[16px]">пользователь</p>
+                        <img src="./img/Button (2).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div id="outer-modal" class="fixed hidden top-0 z-10000 bg-[red]/30 w-full h-full flex justify-center items-center">
+                <form id="form" class=" max-w-[420px] w-full p-[30px] flex flex-col gap-[20px] rounded-[20px] bg-white">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="PhotoUrl">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="FirstName">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="text" placeholder="LastName">
+                    <input required class="border-[2px] border-[#70C05B] duration-800 text-[20px] text-[#414141] hover:shadow-xl hover:shadow-[#70C05B33] p-[10px] rounded-[5px] outline-none " type="tel" placeholder="PhoneNumber">
+                    <button type="submit" class="border-[2px] border-[#FCD5BA] bg-[#FCD5BA] p-[10px] rounded-[5px] text-[#FF6633] text-[24px] cursor-pointer font-normal flex justify-center items-center outline-none">Вход</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <header>
+        <div class="container max-w-[1440px] [0px] pt-[70px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper">
+                <div class="flex gap-[20px] ml-[110px] pt-[20px] items-center">
+                    <button class="font-normal text-[12px] text-[#414141] duration-800 hover:text-[#70C05B]"><a
+                            href="./index.html">Главная</a></button>
+                    <img src="./img/chevron-right.svg" alt="">
+                    <p class="text-[#8F8F8F] text-[12px] font-normal">Каталог</p>
+                </div>
+                <p class="text-[#414141] text-[64px] ml-[100px] pt-[30px] font-bold">Каталог</p>
+
+            </div>
+        </div>
+    </header>
+    <header>
+        <div class="conatiner mt-[70px]  max-w-[1440px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex flex-col gap-[40px] ml-[100px]">
+                
+                <div class="cards flex gap-[40px]">
+                    <div
+                        class="card relative w-[584px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (1).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Молоко, сыр, яйцо</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (2).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Хлеб</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (3).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Фрукты и овощи</div>
+                    </div>
+
+                </div>
+                <div class="cards flex gap-[40px]">
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (4).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Замороженные продукты</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (5).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Напитки</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (6).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Кондитерские изделия</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (7).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Чай, кофе</div>
+                    </div>
+
+                </div>
+                <div class="cards flex gap-[40px]">
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (8).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Бакалея</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (9).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Здоровое питание</div>
+                    </div>
+                    <div
+                        class="card relative w-[584px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (10).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Зоотовары</div>
+                    </div>
+
+                </div>
+                <div class="cards flex gap-[40px]">
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (11).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Детское питание</div>
+                    </div>
+                    <div
+                        class="card relative w-[584px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (12).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Мясо, птица, колбаса</div>
+                    </div>
+                    <div
+                        class="card relative w-[272px] h-[200px] rounded-sm overflow-hidden shadow-[4px_8px_16px_0px_#70C05B33] transition-all duration-800 hover:shadow-[4px_8px_16px_0px_#FF663333] hover:shadow-lg">
+                        <img src="./katalog_img/img (13).svg" alt="Category" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-b  from-[rgba(112,192,91,0)] to-[#70C05B] hover:from-[rgba(255,102,51,0)] hover:to-[#FF6633] transition-all duration-800">
+                        </div>
+                        <div class="absolute bottom-2 left-2 text-white text-[18px] font-bold">Непродовольственные товары</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+     <footer class=" mt-[100px] bg-[url('./katalog_img/bg.svg')] bg-center bg-cover  bg-[#F9F4E2] h-[156px]">
+        <div class="container max-w-[1440px] mt-[0px] mb-[0px] ml-auto mr-auto pt-[60px] ">
+            <div class="wrapper flex justify-evenly items-center flex-wrap">
+                <div class="flex items-center gap-[40px]">
+                    <img src="./img/smile.svg" alt="">
+                    <ul class="flex gap-[30px] items-center text-[12px] text-[#414141] font-normal">
+                        <li>
+                            <a href="">О компании</a>
+                        </li>
+                        <li>
+                            <a href="">Контакты</a>
+                        </li>
+                        <li>
+                            <a href="">Вакансии</a>
+                        </li>
+                        <li>
+                            <a href="">Статьи</a>
+                        </li>
+                        <li>
+                            <a href="">Политика обработки персональных данных</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex gap-[20px]">
+                        <img src="./img/instagram.svg" alt="">
+                        <img src="./img/Vector.svg" alt="">
+                        <img src="./img/facebook.svg" alt="">
+                        <img src="./img/ok.svg" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-[20px] gap-[20px]">
+                    <div class="flex items-center gap-[10px]">
+                        <img src="./img/Vector 188 (Stroke).svg" alt="">
+                        <p class="text-[#414141] text-[16px] font-normal">8 800 777 33 33</p>
+                    </div>
+                    <div class="flex gap-[10px] items-center">
+                        <p class="font-normal text-[12px] text-[#414141]">Дизайн</p>
+                        <img src="./img/logo-zasovskiy-small-black.svg" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <script src="./products-data/products-data.js"></script>
+    <script src="./main.js/search.js"></script>
+    <script src="./main.js/script.js"></script>
+    <script src="./main.js/profile.js"></script>
+    
+</body>
+
+</html>

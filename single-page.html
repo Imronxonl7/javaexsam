@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#FBF8EC]">
+    <div id="loading" class="fixed z-5  top-0 w-full h-full bg-[white]/90  flex items-center justify-center ">
+        <img src="./assets/loading/loading.svg" alt="art">
+    </div>
+
+    <nav class="fixed  top-0 left-0 w-full bg-white shadow-[#0000001A] shadow-xl  "
+        id="navbar">
+        <div class="container max-w-[1440px] bg-[white] [0px] pt-[10px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper flex  justify-center gap-[30px] items-center">
+
+                <div class=" flex justify-center items-center gap-[10px]">
+                    <img src="./img/smile.svg" alt="">
+                    <p class="text-[#414141] text-[18px] font-bold">Северяночка</p>
+                </div>
+                <button
+                    class="w-[140px] h-[40px] text-[16px] font-normal rounded-sm bg-[#70C05B] text-[white] flex items-center justify-evenly gap-[10px]"><img
+                        src="./img/menu.svg" alt="category"><a href="./katalog.html">Каталог</a></button>
+                <form>
+
+                    <input id="input"
+                        class="border-[#70C05B] w-[360px] focus:outline-none h-[40px] rounded-sm border-solid border pl-[15px] pt-[5px] pb-[5px]"
+                        type="search" placeholder="Найти товар">
+                    <div id="search"
+                        class="contaier hidden  absolute overflow-y-scroll flex flex-col gap-[7.5px] bg-white p-[10px] absolute mt-[8px] w-[360px] rounded-sm max-h-[300px] border-[#70C05B] border-solid border-y border-x">
+
+
+                    </div>
+
+                </form>
+                <div class="qutilar flex gap-[25px] ml-[20px] items-center">
+                    <div class="flex flex-wrap relative justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211.svg" alt="">
+                        <button id="like-badge"
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="">Избранное</a></button>
+                        <span
+                            class="absolute bg-[red] font-normal right-[15px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div class="flex flex-wrap justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/Frame 211 (1).svg" alt="">
+                        <button
+                            class="font-normal text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./produkt.html">продукты</a></button>
+                    </div>
+                    <div class="flex flex-wrap relative justify-center w-[65px] h-[50px]">
+                        <img class="w-[24px] h-[24px]" src="./img/shopping-cart.svg" alt="">
+                        <button
+                            class="font-normal relative text-[12px] text-[#414141] hover:text-[#70C05B] duration-800 ease-in-out"><a
+                                href="./korzina.html">Корзина</a></button>
+                        <span id="badge"
+                            class="absolute bg-[red] font-normal right-[20px] text-white  text-[10px] text-center flex justify-center items-center rounded-[50%] w-[12px] h-[12px]">0</span>
+                    </div>
+                    <div id="profile" class="flex gap-[10px] items-center">
+                        <img id="profile-img" class="w-[40px] h-[40px] object-cover rounded-[50%]"
+                            src="./assets/profile/user.svg" alt="">
+                        <p id="profile-name"
+                            class="text-[#232323] duration-800 hover:text-[#70C05B] font-normal text-[16px]">
+                            пользователь</p>
+                        <img src="./img/Button (2).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container max-w-[1440px] [0px] pt-[70px] mb-[0px] ml-auto mr-auto ">
+            <div class="wrapper ml-[110px]">
+                <div id="malumot">
+                    
+                </div>
+                <div id="single-card" class="flex justify-center mt-[15px]">
+                    
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+
+   
+    
+    <script src="./products-data/products-data.js"></script>
+    <script src="./main.js/single.js"></script>
+    <script src="./main.js/search.js"></script>
+    <script src="./main.js/script.js"></script>
+    <script src="./main.js/profile.js"></script>
+</body>
+
+</html>
